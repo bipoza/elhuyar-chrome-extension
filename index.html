@@ -17,6 +17,7 @@
             <h1>Elhuyar
                 <small class="text-muted">by bipoza</small>
             </h1>
+            <form v-on:submit.prevent="search()">
             <div class="row">
                 <div class="col-4">
                     <select v-model="selected" class="form-control">
@@ -40,7 +41,7 @@
                 </div>
             </div>
             <button v-on:click="search()" class="btn btn-primary btn-lg btn-block">Bilatu</button>
-
+        </form>
             <!-- <button @click="toggleBistaratu()">Bistaratu</button> -->
         <br>
         <footer id="footer">
