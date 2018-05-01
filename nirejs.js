@@ -1,17 +1,19 @@
-console.log("dnhjhdsgfjsdfg")
-window.onload = function() {
-    const app = new Vue({
+const app = new Vue({
     el: '#app',
 
     data: {
         selected: 'eu/es',
         isInvalid: false,
         text: null,
+        info: [
+            { title: "Garatzailea", url: "https://github.com/bipoza" },
+            { title: "Kodea", url: "https://github.com/bipoza/elhuyar-chrome-extension" },
+            { title: "Lizentzia", url: "https://github.com/bipoza/elhuyar-chrome-extension/blob/master/LICENSE" }]
     },
     methods: {
-        search:  function () {
+        search: function () {
             if (!this.text) {
-               // alert("Bilatu zerbait");
+                // alert("Bilatu zerbait");
                 this.isInvalid = true;
                 return
             }
@@ -22,9 +24,8 @@ window.onload = function() {
                 elhuyarUrl = elhuyarUrl + 'es_eu/' + this.text;
 
             }
-       //   window.location = elhuyarUrl;
-       window.open(elhuyarUrl,'_blank');
+            //   window.location = elhuyarUrl;
+            window.open(elhuyarUrl, '_blank');
         }
     }
 })
-}

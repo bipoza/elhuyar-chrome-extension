@@ -7,53 +7,57 @@
     <title>Lehenengo kontaktua</title>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous"> -->
-    <link rel="stylesheet" href="sticky.css">
-    
-  
-
+    <link rel="stylesheet" href="css/sketchy.css">
 </head>
 
 <body style="width: 400px; height: 270px;">
-    <div id="app" class="container"> 
+    <div class="container">
+        <div id="app">
+            <br>
+            <h1>Elhuyar
+                <small class="text-muted">by bipoza</small>
+            </h1>
+            <div class="row">
+                <div class="col-4">
+                    <select v-model="selected" class="form-control">
+                        <option value="eu/es">Eu/Es</option>
+                        <option value="es/eu">Es/Eu</option>
+                    </select>
+                </div>
+                <div class="col-8">
+
+                    <input v-model="text" placeholder="Idatzi" class="form-control " v-bind:class="{ 'is-invalid': isInvalid }">
+                    <div class="invalid-feedback">Barkatu, ezin duzu bilaketa hutsik laga.</div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <p>Hizkuntza: {{ selected }}</p>
+                </div>
+                <div class="col">
+                    <p>Bilaketa: {{ text }}</p>
+                </div>
+            </div>
+            <button v-on:click="search()" class="btn btn-primary btn-lg btn-block">Bilatu</button>
+
+            <!-- <button @click="toggleBistaratu()">Bistaratu</button> -->
         <br>
-        <h1>Elhuyar
-            <small class="text-muted">by codesyntax</small>
-        </h1>
-        <div class="row">
-            <div class="col-4">
-                <select v-model="selected" class="form-control">
-                    <option value="eu/es">Eu/Es</option>
-                    <option value="es/eu">Es/Eu</option>
-                </select>
+        <footer id="footer">
+            <div class="row">
+                <div class="col-12 text-center" >
+                <a v-for="item in info" :href="item.url" target="_blank" class="card-link">{{item.title}}</a>
             </div>
-            <div class="col-8">
-
-                <input v-model="text" placeholder="Idatzi" class="form-control " v-bind:class="{ 'is-invalid': isInvalid }">
-                <div class="invalid-feedback">Barkatu, ezin duzu bilaketa hutsik laga.</div>
             </div>
-        </div>
-
-        <br>
-        <div class="row">
-            <div class="col">
-                <p>Hizkuntza: {{ selected }}</p>
-            </div>
-            <div class="col">
-
-                <p>Bilaketa: {{ text }}</p>
-            </div>
-        </div>
-        <button v-on:click="search()" class="btn btn-primary btn-lg btn-block">Bilatu</button>
-
-        <!-- <button @click="toggleBistaratu()">Bistaratu</button> -->
-   
+        </footer> 
+     </div>
     </div>
     <script src="libraries/vue.min.js"></script>
-    
+
     <script src="nirejs.js"></script>
     <script src="libraries/jquery.slim.min.js"></script>
-    <script src="libraries/popper.min.js" ></script>
-    <script src="libraries/bootstrap.min.js"  ></script>
+    <script src="libraries/popper.min.js"></script>
+    <script src="libraries/bootstrap.min.js"></script>
 </body>
 
 </html>
